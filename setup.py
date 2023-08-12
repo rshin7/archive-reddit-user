@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="archive_reddit_user",
-    version="0.8",
+    version="0.11",
     packages=find_packages(),
     install_requires=[
         "praw",

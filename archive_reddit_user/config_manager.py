@@ -2,6 +2,7 @@ import os
 import configparser
 from getpass import getpass
 from archive_reddit_user.authenticator import RedditAuthenticator
+from archive_reddit_user.version import __version__
 
 class ConfigManager:
 
@@ -18,6 +19,7 @@ class ConfigManager:
         client_id = input("Enter your Reddit client_id: ")
         client_secret = input("Enter your Reddit client_secret: ")
         user_agent = "Archive_Reddit_User 0.4"
+        user_agent = f"Archive_Reddit_User {__version__}"
         username = input("Enter your Reddit username: ")
         password = getpass("Enter your Reddit password: ")
 

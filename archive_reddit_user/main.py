@@ -25,13 +25,11 @@ def main():
 
     archiver = RedditArchiver(reddit)
 
-    user_info = archiver.fetch_user_info()
-    archiver.save_user_info_to_json(user_info)
+    user_info = archiver.fetch_user_info(args.user if args.user else None)
+    archiver.save_user_info_to_json(user_info, args.user if args.user else None)
 
-    if args.user:
-        archiver.fetch_and_save_comments(args.user)
-    else:
-        archiver.fetch_and_save_comments()
+    archiver.fetch_and_save_comments(args.user if args.user else None)
+
 
 if __name__ == "__main__":
     main()
