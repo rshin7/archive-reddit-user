@@ -20,7 +20,7 @@ setup(
     keywords="reddit, archiver, comments, backup",
     url="https://github.com/rshin7/archive-reddit-user",
     classifiers=[
-        "Development Status :: 4 - Beta"
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
