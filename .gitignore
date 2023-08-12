@@ -2,3 +2,5 @@
 *.json
 .DS_Store
 dist/
+build/
+archive_reddit_user.egg-info/

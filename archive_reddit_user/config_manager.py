@@ -1,7 +1,7 @@
 import os
 import configparser
 from getpass import getpass
-from reddit_archive_user.authenticator import RedditAuthenticator
+from archive_reddit_user.authenticator import RedditAuthenticator
 
 class ConfigManager:
 
@@ -17,18 +17,16 @@ class ConfigManager:
         """Guide the user through creating the config.ini file interactively."""
         client_id = input("Enter your Reddit client_id: ")
         client_secret = input("Enter your Reddit client_secret: ")
-        user_agent = input("Enter your user agent: ")
+        user_agent = "Archive_Reddit_User 0.4"
         username = input("Enter your Reddit username: ")
-
-        print("\nEnter your Reddit password (we're encrypting this!):")
-        password = self.authenticator.encrypt_password(getpass())
+        password = getpass("Enter your Reddit password: ")
 
         return {
             'client_id': client_id,
             'client_secret': client_secret,
             'user_agent': user_agent,
             'username': username,
-            'password': password  # Encrypted password
+            'password': password
         }
 
     def create_config_file(self, config_data=None):
@@ -41,7 +39,8 @@ class ConfigManager:
                 'client_secret': 'YOUR_CLIENT_SECRET_HERE',
                 'user_agent': 'YOUR_USER_AGENT_HERE',
                 'username': 'YOUR_USERNAME_HERE',
-                'password': 'YOUR_ENCRYPTED_PASSWORD_HERE'
+                'password': 'YOUR_ENCRYPTED_PASSWORD_HERE',
+                'zulu_time': 'YOUR_ZULU_TIME_HERE'
             }
 
         config['REDDIT_AUTH'] = config_data

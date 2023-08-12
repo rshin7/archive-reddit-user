@@ -2,12 +2,11 @@ from setuptools import setup, find_packages
 
 setup(
     name="archive_reddit_user",
-    version="0.2",
+    version="0.8",
     packages=find_packages(),
     install_requires=[
         "praw",
         "tqdm",
-        "cryptography"
     ],
     author="Richard Shin",
     author_email="webmaster@moogra.com",

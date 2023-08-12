@@ -1,8 +1,8 @@
 import argparse
 
-from reddit_archive_user.authenticator import RedditAuthenticator
-from reddit_archive_user.config_manager import ConfigManager
-from reddit_archive_user.reddit_archiver import RedditArchiver
+from archive_reddit_user.authenticator import RedditAuthenticator
+from archive_reddit_user.config_manager import ConfigManager
+from archive_reddit_user.reddit_archiver import RedditArchiver
 
 def main():
     parser = argparse.ArgumentParser(description='Archive a specific Reddit users comments.')
