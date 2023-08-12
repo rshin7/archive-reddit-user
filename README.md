@@ -15,6 +15,6 @@ You can take it a step further and and create a hostable page to easily read and
 * `--user`: specify a specific user to archive their comments.
 
 ## Coming Soon
-[ ] `--nuke`: edit the comment and delete them.
-[ ]`--publish`: Create a page you can upload anywhere that provides a nice front-end to navigate
+* `--nuke`: edit the comment and delete them.
+* `--publish`: Create a page you can upload anywhere that provides a nice front-end to navigate
 through the JSON-ified comments, with search!
