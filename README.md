@@ -1,8 +1,9 @@
 # archive-reddit-user
+<p align="center">
+  <a href="https://github.com/rshin7/archive-reddit-user/actions/workflows/python-publish.yml"><img src="https://github.com/rshin7/archive-reddit-user/actions/workflows/python-publish.yml/badge.svg"></a>
+</p>
 
-This program allows a user to export their own comments (and others) and preserve the context surrounding the comment. The comments and the context surrounding the comment (if applicable) are saved in JSON format.
-
-You can take it a step further and and create a hostable page to easily read and search through the comments.
+This program allows a user to export their own (and others) comments and preserve the context surrounding the comment in JSON format for archiving purposes.
 
 ## Installation and Usage
 
@@ -12,7 +13,7 @@ You can take it a step further and and create a hostable page to easily read and
 
 ## Arguments
 * `--user`: specify a specific user to archive their comments.
-* `--limit`: returns your rate usage (does uses one call).
+* `--limit`: returns your rate usage (does use one call).
 
 ## Coming Soon
 * Testing
