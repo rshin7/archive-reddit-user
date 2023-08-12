@@ -1,6 +1,6 @@
-# archive-reddit-user-comments
+# reddit-archive-user
 
-This script allows a user to export their own comments and preserve the context surrounding the comment. The comments and the context surrounding the comment (if applicable) are saved in JSON format.
+This program allows a user to export their own comments and preserve the context surrounding the comment. The comments and the context surrounding the comment (if applicable) are saved in JSON format.
 
 You can use these JSON comments however you wish, if you'd like, you can host them on your Hugo blog to closely resemble your Reddit user page.
 
@@ -15,9 +15,10 @@ You can use these JSON comments however you wish, if you'd like, you can host th
 
 1. Run the script: `python comments-to-hugo.py`
 
-## Nuke (Optional)
-
-You can pass in the `--nuke` flag to edit your comment and delete them with this script. 
+## Arguments
+* `--nuke`: edit the comment and delete them.
+* `--publish`: Create a page you can upload anywhere that provides a nice front-end to navigate
+through the JSON-ified comments, with search!
 
 ## .env File
 
