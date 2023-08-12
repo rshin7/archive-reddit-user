@@ -6,7 +6,7 @@ long_description = (here / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="archive_reddit_user",
-    version="0.13",
+    version="0.14",
     packages=find_packages(),
     install_requires=[
         "praw",

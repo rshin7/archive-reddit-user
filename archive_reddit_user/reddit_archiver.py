@@ -104,6 +104,9 @@ class RedditArchiver:
 
         comments_dir = f"{username}-comments"
 
+        if not os.path.exists(comments_dir):
+            os.makedirs(comments_dir)
+
         for comment in tqdm(comments_list, desc=f"Processing comments for {username}"):
             self.save_comment_to_json(comment, comments_dir)
             time.sleep(1.1)
