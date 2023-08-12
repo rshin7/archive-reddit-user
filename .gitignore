@@ -4,3 +4,5 @@
 dist/
 build/
 archive_reddit_user.egg-info/
+archive_reddit_user/__pycache__
+tests/__pycache__

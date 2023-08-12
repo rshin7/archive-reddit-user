@@ -2,7 +2,6 @@ import os
 import configparser
 from getpass import getpass
 from archive_reddit_user.authenticator import RedditAuthenticator
-from archive_reddit_user.version import __version__
 
 class ConfigManager:
 
@@ -18,8 +17,7 @@ class ConfigManager:
         """Guide the user through creating the config.ini file interactively."""
         client_id = input("Enter your Reddit client_id: ")
         client_secret = input("Enter your Reddit client_secret: ")
-        user_agent = "Archive_Reddit_User 0.4"
-        user_agent = f"Archive_Reddit_User {__version__}"
+        user_agent = "Archive_Reddit_User"
         username = input("Enter your Reddit username: ")
         password = getpass("Enter your Reddit password: ")
 
@@ -41,8 +39,7 @@ class ConfigManager:
                 'client_secret': 'YOUR_CLIENT_SECRET_HERE',
                 'user_agent': 'YOUR_USER_AGENT_HERE',
                 'username': 'YOUR_USERNAME_HERE',
-                'password': 'YOUR_ENCRYPTED_PASSWORD_HERE',
-                'zulu_time': 'YOUR_ZULU_TIME_HERE'
+                'password': 'YOUR_PASSWORD_HERE',
             }
 
         config['REDDIT_AUTH'] = config_data
