@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="reddit_archive_user",
-    version="0.1",
+    name="archive_reddit_user",
+    version="0.2",
     packages=find_packages(),
     install_requires=[
         "praw",
@@ -19,4 +19,9 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ],
+    entry_points={
+        'console_scripts': [
+            'archive-reddit-user=archive_reddit_user.main:main',
+        ],
+    },
 )

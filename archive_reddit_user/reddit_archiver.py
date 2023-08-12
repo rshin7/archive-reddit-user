@@ -1,14 +1,8 @@
 import os
 import time
 import json
-import praw
 import datetime
-import argparse
 from tqdm import tqdm
-from cryptography.fernet import Fernet
-from config_manager import ConfigManager
-from reddit_archive_user.authenticator import RedditAuthenticator
-    
 
 class RedditArchiver:
     def __init__(self, reddit_instance):
@@ -115,37 +109,4 @@ class RedditArchiver:
 
         for comment in tqdm(comments_list, desc=f"Processing comments for {username}"):
             self.save_comment_to_json(comment, comments_dir)
-            # Introduce delay to respect Reddit's rate limits
             time.sleep(1.1)
-
-def main():
-    parser = argparse.ArgumentParser(description='Archive a specific Reddit users comments.')
-    parser.add_argument('--user', type=str, help='Specify a Reddit username to archive comments of another user.')
-    args = parser.parse_args()
-
-    config_manager = ConfigManager()
-
-    if not config_manager.config_exists():
-        user_config = config_manager.interactive_config_creation()
-        config_manager.create_config_file(user_config)
-        return
-
-    authenticator = RedditAuthenticator()
-    reddit = authenticator.authenticate()
-
-    if reddit is None:
-        print("Authentication failed. Exiting...")
-        return
-
-    archiver = RedditArchiver(reddit)
-
-    user_info = archiver.fetch_user_info()
-    archiver.save_user_info_to_json(user_info)
-
-    if args.user:
-        archiver.fetch_and_save_comments(args.user)
-    else:
-        archiver.fetch_and_save_comments()
-
-if __name__ == "__main__":
-    main()
