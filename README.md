@@ -11,15 +11,15 @@ This program allows a user to export their own (and others) comments and preserv
 2. Follow the setup wizard to create a `config.ini` file.
 3. Run the command: `archive-reddit-user` in your Terminal.
 
-## Arguments
-* `--user`: specify a specific user to archive their comments.
-* `--limit`: returns your rate usage (does use one call).
+For a more detailed guide checkout this blog post.
 
-## Coming Soon
-* Testing
-* `--nuke`: edit the comment and delete them.
-* `--publish`: Create a page you can upload anywhere that provides a nice front-end to navigate
-through the JSON-ified comments, with search!
+## Arguments
+* `--user <reddit_user>`: specify a specific user to archive their comments, no /u/ required.
+    * `archive-reddit-user --user testusername`
+* `--html <directory>`: create a page you can upload anywhere and evne run locally to look through comments.
+    * `archive-reddit-user --html testusername-comments`
+* `--usage`: returns your rate usage (does use one call).
+
 
 ## Is this safe?
 

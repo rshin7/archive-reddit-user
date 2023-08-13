@@ -6,11 +6,12 @@ long_description = (here / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="archive_reddit_user",
-    version="0.14",
+    version="0.15",
     packages=find_packages(),
     install_requires=[
         "praw",
         "tqdm",
+        "jinja2"
     ],
     author="Richard Shin",
     author_email="webmaster@moogra.com",

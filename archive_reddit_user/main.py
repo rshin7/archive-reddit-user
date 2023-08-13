@@ -1,15 +1,15 @@
 import argparse
-import datetime
-
 from archive_reddit_user.authenticator import RedditAuthenticator
 from archive_reddit_user.config_manager import ConfigManager
 from archive_reddit_user.rate_limits import RateLimits
 from archive_reddit_user.reddit_archiver import RedditArchiver
+from archive_reddit_user.html_publisher import HTMLPublisher
 
 def initialize_argparse():
     parser = argparse.ArgumentParser(description='Archive a specific Reddit users comments.')
     parser.add_argument('--user', type=str, help='Specify a Reddit username to archive comments of another user.')
-    parser.add_argument('--limit', action='store_true', help='Just fetch rate limit info without archiving.')
+    parser.add_argument('--usage', action='store_true', help='Just fetch rate limit info without archiving.')
+    parser.add_argument('--html', type=str, help='Create a local user interface to view and search through a directory containing archived comments.')
     return parser.parse_args()
 
 def manage_configuration():
@@ -34,8 +34,16 @@ def archive_user_data(reddit, user=None):
     archiver.save_user_info_to_json(user_info, user)
     archiver.fetch_and_save_comments(user)
 
+def publish_html(directory):
+    publisher = HTMLPublisher(directory)
+    publisher.generate_html()
+
 def main():
     args = initialize_argparse()
+
+    if args.html:
+        publish_html(args.publish)
+        return
 
     if not manage_configuration():
         return
@@ -44,7 +52,7 @@ def main():
     if reddit is None:
         return
 
-    if args.limit:
+    if args.usage:
         rate_limiter = RateLimits(reddit)
         rate_limiter.display_rate_limits()
         return

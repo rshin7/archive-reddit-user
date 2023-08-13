@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ user.name }}'s Comments</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-8">
+
+    <div class="bg-white p-4 rounded shadow-lg">
+        <h1 class="text-2xl font-bold mb-4">Username: {{ user.name }}</h1>
+        <p><strong>Trophies:</strong> {{ user.trophies|join(", ") }}</p>
+        <p><strong>Post Karma:</strong> {{ user.post_karma }}</p>
+        <p><strong>Comment Karma:</strong> {{ user.comment_karma }}</p>
+    </div>
+
+    <div class="comments-section mt-8">
+
+        {% macro render_comment(comment, nested=False) %}
+        <div class="comment bg-white p-4 border-b mb-4 rounded shadow-lg {{ 'pl-6 border-l-2 border-gray-200' if nested else '' }}">
+            <p class="text-gray-600">{{ comment.body }}</p>
+            {% if comment.id == user.current_comment_id %}
+                <p class="text-red-600">You</p>  {# This highlights the user's own comment #}
+            {% endif %}
+            {% if comment.parent_comment %}
+                {{ render_comment(comment.parent_comment, True) }}
+            {% endif %}
+        </div>
+        {% endmacro %}
+
+        {% for comment in comments %}
+            {{ render_comment(comment) }}
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>

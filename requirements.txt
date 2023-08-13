@@ -1,3 +1,4 @@
 praw
 tqdm
 pytest
+jinja2
